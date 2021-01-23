@@ -14,30 +14,29 @@
 </head>
 
 <body>
-    <div class="layui-container">
-
+    <div class="layui-container" id="logreg_div">
         <div class="layui-row">
             <form class="layui-form" action="">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">用户名</label>
+                    <!-- <label class="layui-form-label">用户名</label> -->
                     <div class="layui-input-block">
-                        <input type="text" name="title" required placeholder="请输入用户名" maxlength="10"
+                        <input type="text" name="title1" required placeholder="请输入用户名" maxlength="10"
                             class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">密码</label>
+                    <!-- <label class="layui-form-label">密码</label> -->
                     <div class="layui-input-block">
-                        <input type="password" name="title" required placeholder="请输入密码" class="layui-input">
+                        <input type="password" name="title2" required placeholder="请输入密码" class="layui-input">
                     </div>
                 </div>
 
                 <div class="layui-form-item">
-                    <div class="layui-input-block">
+                    <div class="layui-input-block" id="login_mar">
                         <button class="layui-btn">登录</button>
                     </div>
                 </div>
-                <p>没有账号,<a href="regist.ejs">立即注册</a>!</p>
+                <p id="lorep">没有账号,<a href="/regist">立即注册</a>!</p>
             </form>
         </div>
     </div>

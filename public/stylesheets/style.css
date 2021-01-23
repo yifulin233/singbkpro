@@ -6,3 +6,29 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+#logreg_div{
+  border: 1px solid rebeccapurple;
+  border-radius: 1%;
+  width: 450px;
+  height: 290px;
+  margin: 90px auto;
+  text-align: center;
+  box-shadow: 1px 1px 1px 1px #4c4c4c;
+  background-color: rgb(102, 51, 153);
+}
+.layui-form-item{
+  margin: 20px 1px 1px -90px;
+}
+.layui-btn{
+  width: 50%;
+  text-align: center;
+}
+#lorep{
+  margin: 9px auto;
+}
+#login_mar{
+  margin-top: 20px;
+}
+
