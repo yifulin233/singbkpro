@@ -4,27 +4,44 @@
 <head>
   <%- include('head',{}); %>
 
+
     <title>
       <%= title %>
     </title>
-    <!-- <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href="libs/layui/css/layui.css" /> -->
 
 </head>
 
 <body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
-  <h2>sefuosbf</h2>
-  <h3>nfilsenfsd</h3>
-  <h4>更改</h4>
+  <%- include('nav',{}); %>
 
-
-  <button type="button" class="layui-btn">一个标准的按钮</button>
-  <a href="http://www.layui.com" class="layui-btn">一个可跳转的按钮</a>
+    <table class="layui-table" lay-even="" lay-skin="nob">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
 </body>
 
 </html>

@@ -6,14 +6,25 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-//登录路由配置
+//login路由配置
 router.get('/login', function (req, res) {
   res.render('login', {});
 });
 
-//文章详情页路由配置
-router.get('/article', function (req, res) {
+//dateils详情页路由配置
+router.get('/details', function (req, res) {
   res.render('details', {});
+});
+
+
+//write路由配置
+router.get('/write', function (req, res) {
+  res.render('write', {});
+});
+
+//regist路由配置
+router.get('/regist', function (req, res) {
+  res.render('regist', {});
 });
 
 
