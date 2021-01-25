@@ -2,12 +2,23 @@
 <html lang="en">
 
 <head>
-    <%- include('head',{}); %>
+    <%- include('head',{userName}); %>
         <title>write</title>
 </head>
 
 <body>
-    <%- include('nav',{}); %>
+    <%- include('nav',{userName}) %>
+
+
+        <div class="article">
+            <form action="/article/add" method="POST">
+                <input type="text" name="title" placeholder="请输入文章标题" value="abcd"><br />
+                <textarea name="content" id="editor" cols="30" rows="10">reoreoreoreo~~~</textarea>
+                <input type="submit" value="发布">
+            </form>
+
+        </div>
+
 
 
 
