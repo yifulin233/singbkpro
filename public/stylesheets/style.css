@@ -1,11 +1,23 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url(/images/as/lhz.jpg) no-repeat;
+  background-position: top;
 }
 
 a {
   color: #00B7FF;
 }
+
+#index_margin{
+  margin: 30px auto;
+  width: 1300px;
+  background-color: rgb(255, 255, 255,0.8);
+  box-shadow: 1px 1px 1px 1px #4c4c4c;
+  border-radius: 1%;
+}
+
+
 
 
 #logreg_div{
@@ -16,7 +28,7 @@ a {
   margin: 90px auto;
   text-align: center;
   box-shadow: 1px 1px 1px 1px #4c4c4c;
-  background-color: rgb(102, 51, 153);
+  background-color: rgb(102, 51, 153,0.8);
 }
 .layui-form-item{
   margin: 20px 1px 1px -90px;
@@ -31,4 +43,53 @@ a {
 #login_mar{
   margin-top: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+#article_art{
+  width: 1300px;
+  height: 500px;
+  margin: 20px auto;
+  border: 2px solid rebeccapurple;
+  background-color: rebeccapurple;
+  opacity: 0.8;
+  box-shadow: 1px 1px 1px 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

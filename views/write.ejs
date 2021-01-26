@@ -2,30 +2,62 @@
 <html lang="en">
 
 <head>
-    <%- include('head',{userName}); %>
+    <%- include('head',{}); %>
         <title>write</title>
+        <style>
+            #article_p {
+                margin: 20px;
+                font-size: 40px;
+                font-weight: bold;
+                color: bisque;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            #tit_nc {
+                margin: 13px 3px;
+                width: 200px;
+                height: 30px;
+                border-radius: 3px;
+            }
+
+
+
+            #art_btn {
+                margin-left: 1150px;
+                margin-top: 100px;
+                margin-bottom: 20px;
+                height: 50px;
+                width: 100px;
+                border-radius: 10%;
+                font-size: larger;
+                box-shadow: 1px 1px 12px 1px #4c4c4c;
+            }
+        </style>
 </head>
 
 <body>
     <%- include('nav',{userName}) %>
-
-
-        <div class="article">
+        <div class="article" id="article_art">
             <form action="/article/add" method="POST">
-                <input type="text" name="title" placeholder="请输入文章标题" value="abcd"><br />
-                <textarea name="content" id="editor" cols="30" rows="10">reoreoreoreo~~~</textarea>
-                <input type="submit" value="发布">
+                <p id="article_p">写文章</p>
+                <input type="text" name="title" placeholder="请输入昵称" id="tit_nc" value=""><br />
+                <textarea name="content" id="editor" placeholder="请输入内容"></textarea>
+                <button type="submit" class="layui-btn layui-btn-sm" id="art_btn">发布</button>
             </form>
-
         </div>
 
-
-
-
-
-
-
-
+        <script src="/libs/ckeditor5-build-classic/ckeditor.js"></script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#editor'), {
+                    ckfinder: {
+                        uploadUrl: '/article/upload'
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
 </body>
 
 </html>

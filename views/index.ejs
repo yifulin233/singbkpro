@@ -10,8 +10,49 @@
 
 <body>
   <%- include('nav',{userName}); %>
+    <table class="layui-table" id="index_margin">
+      <colgroup>
+        <col width="150">
+        <col width="150">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+          <th colspan="2" style="text-align: center;">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.map(item=>{ %>
+          <tr>
+            <td>
+              <%= item.title %>
+            </td>
+            <td>时间空格</td>
+            <td>
+              <%= item.content %>
+            </td>
+            <td><a href="/details">编辑</a></td>
+            <td><a href="">删除</a></td>
+            <% }) %>
+          </tr>
 
-    <table class="layui-table" lay-even="" lay-skin="nob">
+
+
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+    <!-- <table id="index_margin" class="layui-table" lay-even="" lay-skin="nob">
       <colgroup>
         <col width="150">
         <col width="200">
@@ -22,6 +63,7 @@
           <th>昵称</th>
           <th>加入时间</th>
           <th>签名</th>
+          <th colspan="2" style="text-align: center;">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -35,16 +77,16 @@
         <tr>
           <td>许闲心</td>
           <td>2016-11-28</td>
-          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+          <td><a href="/details">于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</a></td>
           <td>编辑</td>
           <td>删除</td>
         </tr>
         <tr>
           <td>sentsin</td>
           <td>2016-11-27</td>
-          <td> Life is either a daring adventure or nothing.</td>
+          <td><a href="/details">Life is either a daring adventure or nothing.</a></td>
           <td>编辑</td>
-          <td>删除</td>
+          <td>删除</td> -->
 </body>
 
 </html>
