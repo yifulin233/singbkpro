@@ -32,6 +32,8 @@
         <col width="150">
         <col width="150">
         <col>
+        <col width="100">
+        <col width="100">
       </colgroup>
       <thead>
         <tr>
@@ -46,15 +48,22 @@
         <% data.blogList.map(item=>{ %>
           <tr>
             <td>
-              <%= item.title %>
+              <a href="/details?_id=<%= item._id %>">
+                <%= item.title %>
+              </a>
             </td>
             <td>
-              <%= item.time %>
+              <a href="/details?_id=<%= item._id %>">
+                <%= item.time %>
+              </a>
             </td>
             <td>
-              <%- item.content %>
+              <a href="/details?_id=<%= item._id %>">
+                <%- item.content %>
+              </a>
             </td>
-            <td><a href="/details">编辑</a></td>
+            <td><a href="/write?_id=<%=item._id%>&page=<%=data.currPage%>">编辑</a></td>
+            <!-- <td><a href="/write?">编辑</a></td> -->
             <td><a href="">删除</a></td>
           </tr>
           <% }) %>

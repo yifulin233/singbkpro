@@ -4,11 +4,34 @@
 <head>
     <%- include('head',{}); %>
         <title>details</title>
+        <style>
+            #deta_opac {
+                opacity: 0.8;
+            }
+        </style>
 </head>
 
 <body>
     <%- include('nav',{userName}) %>
-        <textarea name="" id="" cols="30" rows="10">详情页</textarea>
+        <div class="layui-card" id="deta_opac">
+            <div class="layui-card-header">
+                <td>
+                    <%= data.title %>
+                </td>
+                <td>
+                    发布时间:<%= data.time %>
+                </td>
+            </div>
+            <div class="layui-card-body">
+                <div>
+                    <%- data.content%>
+                </div>
+
+
+            </div>
+
+        </div>
+
 </body>
 
 </html>

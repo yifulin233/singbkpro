@@ -15,12 +15,10 @@
 
             #tit_nc {
                 margin: 13px 3px;
-                width: 200px;
+                width: 700px;
                 height: 30px;
                 border-radius: 3px;
             }
-
-
 
             #art_btn {
                 margin-left: 1150px;
@@ -40,8 +38,10 @@
         <div class="article" id="article_art">
             <form action="/article/add" method="POST">
                 <p id="article_p">写文章</p>
-                <input type="text" name="title" placeholder="请输入昵称" id="tit_nc" value=""><br />
-                <textarea name="content" id="editor" placeholder="请输入内容"></textarea>
+                <input type="text" name="title" placeholder="请输入文章标题" id="tit_nc" value="<%=details.title%>"><br />
+                <textarea name="content" id="editor" placeholder="请输入内容">
+                <%=details.content%>
+                </textarea>
                 <button type="submit" class="layui-btn layui-btn-sm" id="art_btn">发布</button>
             </form>
         </div>
