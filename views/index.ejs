@@ -6,6 +6,23 @@
     <title>
       index
     </title>
+    <style>
+      .page_w {
+        width: 200px;
+        margin-left: 1100px;
+        text-align: center;
+        background-color: aquamarine;
+        opacity: 0.8;
+        font-size: 30px;
+        border-radius: 3%;
+        padding: 20px;
+      }
+
+      #index-bu {
+        text-align: center;
+        letter-spacing: 10px;
+      }
+    </style>
 </head>
 
 <body>
@@ -18,75 +35,41 @@
       </colgroup>
       <thead>
         <tr>
-          <th>昵称</th>
-          <th>加入时间</th>
-          <th>签名</th>
-          <th colspan="2" style="text-align: center;">操作</th>
+          <th id="index-bu">昵称</th>
+          <th id="index-bu">加入时间</th>
+          <th id="index-bu">加入内容</th>
+          <th id="index-bu" colspan="2">操作</th>
         </tr>
       </thead>
+
       <tbody>
-        <% data.map(item=>{ %>
+        <% data.blogList.map(item=>{ %>
           <tr>
             <td>
               <%= item.title %>
             </td>
-            <td>时间空格</td>
             <td>
-              <%= item.content %>
+              <%= item.time %>
+            </td>
+            <td>
+              <%- item.content %>
             </td>
             <td><a href="/details">编辑</a></td>
             <td><a href="">删除</a></td>
-            <% }) %>
           </tr>
-
+          <% }) %>
 
 
       </tbody>
     </table>
+    <div class="page_w">
+      <% for(let i=1;i <=data.PagesTotle;i++){ %>
+        <a href="/?page=<%=i%>" class="<%- data.currPage==i?'active':'' %>">
+          <%= i %>
+        </a>
+        <% } %>
+    </div>
 
-
-
-
-
-
-
-
-
-    <!-- <table id="index_margin" class="layui-table" lay-even="" lay-skin="nob">
-      <colgroup>
-        <col width="150">
-        <col width="200">
-        <col>
-      </colgroup>
-      <thead>
-        <tr>
-          <th>昵称</th>
-          <th>加入时间</th>
-          <th>签名</th>
-          <th colspan="2" style="text-align: center;">操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>贤心</td>
-          <td>2016-11-29</td>
-          <td><a href="/details">人生就像是一场修行</a></td>
-          <td>编辑</td>
-          <td>删除</td>
-        </tr>
-        <tr>
-          <td>许闲心</td>
-          <td>2016-11-28</td>
-          <td><a href="/details">于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</a></td>
-          <td>编辑</td>
-          <td>删除</td>
-        </tr>
-        <tr>
-          <td>sentsin</td>
-          <td>2016-11-27</td>
-          <td><a href="/details">Life is either a daring adventure or nothing.</a></td>
-          <td>编辑</td>
-          <td>删除</td> -->
 </body>
 
 </html>
