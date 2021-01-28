@@ -29,11 +29,8 @@ router.post('/add', (req, res, next) => {
             id: Date.now()
         }
         // console.log(articleInfo);
-
         //页面表单数据，放入模型
         let articleI = new Article(articleInfo)
-
-
         //保存
         articleI.save((err, result) => {
             if (!err) {
@@ -41,14 +38,12 @@ router.post('/add', (req, res, next) => {
                 res.redirect('/')
             }
         })
-
     } else {//编辑
         let page = req.body.page
         // id
         // 查找一条数据并修改内容
         // 新数据获取
         let articleInfo = {
-
             title: req.body.title,
             content: req.body.content
         }
