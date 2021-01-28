@@ -16,24 +16,52 @@ let fs = require('fs')
 router.post('/add', (req, res, next) => {
 
     console.log(req.body);
-    //向数据库添加用户信息
-    let articleInfo = {
-        title: req.body.title,
-        content: req.body.content,
-        username: req.session.username,
-        id: Date.now()
+
+    // 首先来获取下文章id，依次判断是新增还是编辑
+    let nId = req.body.dId || ''
+    // console.log(nId);
+    // 新增
+    if (!nId) {
+        var articleInfo = {
+            title: req.body.title,
+            content: req.body.content,
+            username: req.session.username,
+            id: Date.now()
+        }
+        // console.log(articleInfo);
+
+        //页面表单数据，放入模型
+        let articleI = new Article(articleInfo)
+
+
+        //保存
+        articleI.save((err, result) => {
+            if (!err) {
+                // res.send(result)
+                res.redirect('/')
+            }
+        })
+
+    } else {//编辑
+        let page = req.body.page
+        // id
+        // 查找一条数据并修改内容
+        // 新数据获取
+        let articleInfo = {
+
+            title: req.body.title,
+            content: req.body.content
+        }
+        Article.findByIdAndUpdate(nId, articleInfo, { new: true }, (err, result) => {
+
+            if (!err) {
+                res.redirect(`/?page=${page}`)
+
+            }
+        })
+
     }
 
-    //页面表单数据，放入模型
-    let articleI = new Article(articleInfo)
-
-
-    //保存
-    articleI.save((err, result) => {
-        if (!err) {
-            res.send(result)
-        }
-    })
 });
 
 
@@ -63,25 +91,30 @@ router.post('/upload', (req, res, next) => {
         wStream.on('close', () => {
             res.send({ uploaded: 1, url: filePath })//将服务器端图片地址拿给文本框，使得文章能正确加载插图
 
-
-
         })
-
 
     })
 
+})
 
+// 文章删除的接口
+router.get('/delete', (req, res, next) => {
+    // 从接口接收传输的id和页码page
+    let id = req.query._id
+    let page = req.query.page
+    console.log(id, page);
+    // 从数据库删除一条
+    Article.deleteOne({ _id: id }, err => {
+        if (!err) {
+            // res.send('删除成功')
+            res.redirect(`/?page=${page}`)
+        }
 
-
-
-
-
-
-
-
-
+    })
 
 })
+
+
 
 
 

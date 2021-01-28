@@ -37,12 +37,19 @@
     <%- include('nav',{userName}) %>
         <div class="article" id="article_art">
             <form action="/article/add" method="POST">
+                <!-- 在提交的时候，需要用到的信息，顺便提交过去 -->
+                <input type="hidden" name="dId" value="<%=details._id%>">
+                <input type="hidden" name="page" value="<%=details.page%>">
                 <p id="article_p">写文章</p>
                 <input type="text" name="title" placeholder="请输入文章标题" id="tit_nc" value="<%=details.title%>"><br />
                 <textarea name="content" id="editor" placeholder="请输入内容">
                 <%=details.content%>
                 </textarea>
-                <button type="submit" class="layui-btn layui-btn-sm" id="art_btn">发布</button>
+                <%if(!details._id){%>
+                    <button type="submit" class="layui-btn layui-btn-sm" id="art_btn">发布</button>
+                    <%}else{%>
+                        <button type="submit" class="layui-btn layui-btn-sm" id="art_btn">确认修改</button>
+                        <%}%>
             </form>
         </div>
 

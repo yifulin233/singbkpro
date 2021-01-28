@@ -54,7 +54,7 @@ router.get('/details', async function (req, res) {
   let userName = req.session.username || ''
 
   let blokId = req.query._id
-  console.log('哦哦'+blokId);
+  // console.log('哦哦'+blokId);
   let data = await Article.findOne({ _id: blokId })
   data['time'] = moment(data.id).utcOffset(480).format('YYYY-MM-DD HH:mm:ss');
   res.render('details', { userName, data });
@@ -64,22 +64,29 @@ router.get('/details', async function (req, res) {
 //write路由配置
 router.get('/write', async (req, res, next) => {
   let userName = req.session.userName || ''
-
   let _id = req.query._id || ''
+
+  // 如果存在id渲染页面数据
   if (_id) {
     let page = req.query.page
 
-    console.log('这是1'+_id);
-    console.log('这是2'+page);
+    console.log('这是1' + _id);
+    console.log('这是2' + page);
 
     // 文章数据查询渲染
-
-    let details = await Article.findOne({ _id: _id })
+    details = await Article.findOne({ _id: _id })
+    details.page = page
     // 时间处理
     res.render('write', { userName, details });
 
   } else {
-    res.render('write', { userName });
+    // 如果不存在id,直接渲染无数据页面（null-------------）
+    let details = {
+      title: '',
+      content: '',
+      _id: ""
+    }
+    res.render('write', { userName, details });
   }
 });
 
